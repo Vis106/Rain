@@ -345,6 +345,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Cube.cs"
 "Assets/Scripts/CubeSpawner.cs"
+"Assets/Scripts/Floor.cs"
 "Assets/Scripts/ObjectPool.cs"
 "Assets/Scripts/Zone.cs"
 -langversion:9.0

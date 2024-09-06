@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 484054027}
   - component: {fileID: 484054026}
   - component: {fileID: 484054025}
+  - component: {fileID: 484054029}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Plane
@@ -221,6 +222,18 @@ Transform:
   m_Father: {fileID: 1832544384}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 81.4, y: 0, z: 44.3}
+--- !u!114 &484054029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484054024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7b440dabcf4154b8a622ea3f853fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &583015763
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 583015764}
+  - component: {fileID: 583015765}
   m_Layer: 0
   m_Name: CubePool
   m_TagString: Untagged
@@ -252,6 +266,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &583015765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583015763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcec06cfc6907bc4bbb99c15602c4e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _container: {fileID: 583015763}
+  _capacity: 20
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,11 +433,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db6afedd55ab7747b1112f4366a7c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _container: {fileID: 583015763}
-  _capacity: 50
-  _cubePrefab: {fileID: 3269721913088699631, guid: a5fd19c1938586a42a45ba36fe145bf7, type: 3}
+  _cubePrefab: {fileID: 4340680417712377584, guid: a5fd19c1938586a42a45ba36fe145bf7, type: 3}
   _delay: 0.5
   _zone: {fileID: 782461759}
+  _objectPool: {fileID: 583015765}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +564,7 @@ GameObject:
   - component: {fileID: 1696760634}
   - component: {fileID: 1696760633}
   - component: {fileID: 1696760632}
+  - component: {fileID: 1696760636}
   m_Layer: 0
   m_Name: Plane (2)
   m_TagString: Plane
@@ -623,6 +651,18 @@ Transform:
   m_Father: {fileID: 1832544384}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 84.9, y: 0, z: -79.22}
+--- !u!114 &1696760636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696760631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7b440dabcf4154b8a622ea3f853fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1832544380
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +675,7 @@ GameObject:
   - component: {fileID: 1832544383}
   - component: {fileID: 1832544382}
   - component: {fileID: 1832544381}
+  - component: {fileID: 1832544385}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Plane
@@ -725,6 +766,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1832544385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832544380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7b440dabcf4154b8a622ea3f853fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1983241382
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +790,7 @@ GameObject:
   - component: {fileID: 1983241385}
   - component: {fileID: 1983241384}
   - component: {fileID: 1983241383}
+  - component: {fileID: 1983241387}
   m_Layer: 0
   m_Name: Plane (4)
   m_TagString: Plane
@@ -823,6 +877,18 @@ Transform:
   m_Father: {fileID: 1832544384}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 77.75}
+--- !u!114 &1983241387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983241382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7b440dabcf4154b8a622ea3f853fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2082021040
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +901,7 @@ GameObject:
   - component: {fileID: 2082021043}
   - component: {fileID: 2082021042}
   - component: {fileID: 2082021041}
+  - component: {fileID: 2082021045}
   m_Layer: 0
   m_Name: Plane (3)
   m_TagString: Plane
@@ -921,6 +988,18 @@ Transform:
   m_Father: {fileID: 1832544384}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 80.4, y: 0, z: 0}
+--- !u!114 &2082021045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082021040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7b440dabcf4154b8a622ea3f853fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5014885079210090886
 PrefabInstance:
   m_ObjectHideFlags: 0

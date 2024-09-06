@@ -1,34 +1,34 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeSpawner : ObjectPool
+public class CubeSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _cubePrefab;
+    [SerializeField] private Cube _cubePrefab;
     [SerializeField] private float _delay;
     [SerializeField] private Zone _zone;
+    [SerializeField] private ObjectPool _objectPool;
 
     private Coroutine _spawnCubeWithDelay;
 
     private void Start()
     {
-        Initialize(_cubePrefab);
+        _objectPool.Initialize(_cubePrefab.gameObject);
         TurnOn();
     }
 
-    private IEnumerator SpawnCube()
+    private IEnumerator SpawningCube()
     {
         var timeInterval = new WaitForSeconds(_delay);
 
-        while (TryGetObject(out GameObject cube))
+        while (_objectPool.TryGetObject(out GameObject cube))
         {
             yield return timeInterval;
 
-            SetCube(cube, _zone.GetRandomPositionInZone());
+            SpawnCube(cube, _zone.GetRandomPositionInZone());
         }
     }
 
-    private void SetCube(GameObject cube, Vector3 spawnPoint)
+    private void SpawnCube(GameObject cube, Vector3 spawnPoint)
     {
         cube.SetActive(true);
         cube.transform.position = spawnPoint;
@@ -41,6 +41,6 @@ public class CubeSpawner : ObjectPool
             StopCoroutine(_spawnCubeWithDelay);
         }
 
-        _spawnCubeWithDelay = StartCoroutine(SpawnCube());
+        _spawnCubeWithDelay = StartCoroutine(SpawningCube());
     }
 }

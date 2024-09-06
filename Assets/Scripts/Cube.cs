@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Renderer))]
 public class Cube : MonoBehaviour
 {
-    private const string PLANE_TAG = "Plane";
-
     [SerializeField] private float _delayToEnable;
     [SerializeField] private float _maxLifeTime = 6;
     [SerializeField] private float _minLifeTime = 2;
@@ -13,10 +11,16 @@ public class Cube : MonoBehaviour
     private Renderer _startRenderer;
     private bool _isTouched = false;
     private Coroutine _startCountdown;
+    private Renderer _renderer;
+
+    private void Awake()
+    {
+        _renderer = GetComponent<Renderer>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == PLANE_TAG)
+        if (collision.gameObject.TryGetComponent<Floor>(out _))
         {
             if (_isTouched == false)
             {
@@ -28,18 +32,11 @@ public class Cube : MonoBehaviour
     }
 
     private IEnumerator SetEnable()
-    {
-        float elapsedTime = 0f;
+    {       
         var lifeTime = Random.Range(_minLifeTime, _maxLifeTime);
-
-        var timeInterval = new WaitForSeconds(_delayToEnable);
-
-        while (elapsedTime < lifeTime)
-        {
-            Debug.Log(lifeTime);
-            elapsedTime += Time.deltaTime;
-            yield return timeInterval;
-        }
+        var timeInterval = new WaitForSeconds(lifeTime);
+                
+        yield return timeInterval;
 
         Init();
         this.gameObject.SetActive(false);
@@ -57,12 +54,12 @@ public class Cube : MonoBehaviour
 
     private void SetRandomColor()
     {
-        GetComponent<Renderer>().material.color = Random.ColorHSV();
+        _renderer.material.color = Random.ColorHSV();
     }
 
     private void Init()
     {
-        GetComponent<Renderer>().material.color = Color.red;
+        _renderer.material.color = Color.red;
         _isTouched = false;
     }
 }
